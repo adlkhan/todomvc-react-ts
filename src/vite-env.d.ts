@@ -14,6 +14,8 @@ type Action = {
   id: string;
 } | {
   type: 'TOGGLE_ALL'
+} | {
+  type: 'CLEAR_COMPLETED'
 }
 
 interface TodoType {

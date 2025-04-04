@@ -38,6 +38,9 @@ export function todosReducer(state : TodoType[], action : Action) {
         return state.map(todo => ({...todo, isCompleted: true}));
       }
     }
+    case 'CLEAR_COMPLETED': {
+      return state.filter(todo => !todo.isCompleted)
+    }
   }
 }
 
@@ -65,6 +68,10 @@ export function filterTodos(todos : TodoType[], filter: TodoFilters) {
       return todos.filter(todo => todo.isCompleted);
     }
   }
+}
+
+export function anyTodoCompleted(todos: TodoType[]) {
+  return todos.some(todo => todo.isCompleted);
 }
 
 

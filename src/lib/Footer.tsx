@@ -1,9 +1,16 @@
-import { capitalizeFirstLetter, remainingTodosCount } from "./utils";
+import { useContext } from "react";
+import { anyTodoCompleted, capitalizeFirstLetter, DispatchContext, remainingTodosCount } from "./utils";
 
 const Footer = ({ todos, currentFilter, changeFilter } : FooterProps) => {
-
   const todosCount = remainingTodosCount(todos);
   const filters : TodoFilters[] = ['all', 'active', 'completed'];
+  const dispatch = useContext(DispatchContext);
+
+  function handleClearCompleted() {
+    dispatch!({
+      type: 'CLEAR_COMPLETED',
+    });
+  }
   
   return (
     <footer className="footer">
@@ -25,9 +32,13 @@ const Footer = ({ todos, currentFilter, changeFilter } : FooterProps) => {
         ))}
       </ul>
 
-      <button className="clear-completed">
-        Clear completed
-      </button>
+      { anyTodoCompleted(todos) ?
+        <button 
+          className="clear-completed"
+          onClick={handleClearCompleted}>
+          Clear completed
+        </button> : ''
+      }
     </footer>
   );
 }
