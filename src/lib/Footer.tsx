@@ -1,5 +1,6 @@
 import { useContext } from "react";
-import { anyTodoCompleted, capitalizeFirstLetter, DispatchContext, remainingTodosCount } from "./utils";
+import { anyTodoCompleted, capitalizeFirstLetter, remainingTodosCount } from "./utils";
+import { DispatchContext } from "./DispatchContext";
 
 const Footer = ({ todos, currentFilter, changeFilter } : FooterProps) => {
   const todosCount = remainingTodosCount(todos);

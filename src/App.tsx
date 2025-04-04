@@ -2,7 +2,9 @@ import Footer from "./lib/Footer";
 import Header from "./lib/Header";
 import Main from "./lib/Main";
 import { useReducer, useState } from "react";
-import { todosReducer, DispatchContext, filterTodos } from "./lib/utils";
+import { filterTodos } from "./lib/utils";
+import { DispatchContext } from "./lib/DispatchContext";
+import { todosReducer } from "./lib/todosReducer";
 
 function App() {
   const [todos, dispatch] = useReducer(todosReducer, []);

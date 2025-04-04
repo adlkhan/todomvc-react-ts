@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from "react";
 import { flushSync } from "react-dom";
-import { DispatchContext } from "./utils";
+import { DispatchContext } from "./DispatchContext";
 
 const Todo = ({ todo } : { todo: TodoType }) => {
   const dispatch = useContext(DispatchContext);

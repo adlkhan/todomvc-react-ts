@@ -1,6 +1,6 @@
 import Todo from "./Todo";
 import { useContext } from 'react';
-import { DispatchContext } from "./utils";
+import { DispatchContext } from "./DispatchContext";
 
 const Main = ({ todos } : { todos : TodoType[] }) => {
   const dispatch = useContext(DispatchContext);
