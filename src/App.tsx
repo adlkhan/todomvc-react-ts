@@ -5,13 +5,14 @@ import { useReducer, useState } from "react";
 import { filterTodos } from "./lib/utils";
 import { DispatchContext } from "./lib/DispatchContext";
 import { todosReducer } from "./lib/todosReducer";
+import { TodoFiltersEnum } from "./lib/enums";
 
 function App() {
   const [todos, dispatch] = useReducer(todosReducer, []);
-  const [currentTodosFilter, setCurrentTodosFilter] = useState<TodoFilters>('all');
+  const [currentTodosFilter, setCurrentTodosFilter] = useState<TodoFiltersEnum>(TodoFiltersEnum.All);
   const filteredTodos = filterTodos(todos, currentTodosFilter);
 
-  function changeFilter(filter : TodoFilters) {
+  function changeFilter(filter : TodoFiltersEnum) {
     setCurrentTodosFilter(filter);
   }
 

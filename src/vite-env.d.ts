@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+
 type Action = {
   type: 'ADD';
   content: string;
@@ -28,10 +29,8 @@ interface HeaderProps {
   dispatch: Dispatch<Action>;
 }
 
-type TodoFilters = 'all' | 'active' | 'completed';
-
 interface FooterProps { 
   todos: TodoType[];
-  changeFilter: (filter: TodoFilters) => void;
-  currentFilter: TodoFilters;
+  changeFilter: (filter: TodoFiltersEnum) => void;
+  currentFilter: TodoFiltersEnum;
 }

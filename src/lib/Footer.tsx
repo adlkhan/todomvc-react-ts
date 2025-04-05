@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { anyTodoCompleted, capitalizeFirstLetter, remainingTodosCount } from "./utils";
 import { DispatchContext } from "./DispatchContext";
+import { TodoFiltersEnum } from "./enums";
 
 const Footer = ({ todos, currentFilter, changeFilter } : FooterProps) => {
   const todosCount = remainingTodosCount(todos);
-  const filters : TodoFilters[] = ['all', 'active', 'completed'];
   const dispatch = useContext(DispatchContext);
 
   function handleClearCompleted() {
@@ -20,8 +20,8 @@ const Footer = ({ todos, currentFilter, changeFilter } : FooterProps) => {
       </span>
 
       <ul className="filters">
-        {filters.map((filter, index) => (
-          <li key={index}>
+        {Object.values(TodoFiltersEnum).map((filter) => (
+          <li key={filter}>
             <a 
               href="#"
               className={`${currentFilter === filter ? 'selected' : ''}`}

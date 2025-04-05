@@ -1,18 +1,20 @@
+import { TodoFiltersEnum } from "./enums";
+
 export function remainingTodosCount(todos : TodoType[]) {
   return todos.reduce((count, todo) => {
     return !todo.isCompleted ? count + 1 : count;
   }, 0);
 }
 
-export function filterTodos(todos : TodoType[], filter: TodoFilters) {
+export function filterTodos(todos : TodoType[], filter: TodoFiltersEnum) {
   switch(filter) {
-    case 'all': {
+    case TodoFiltersEnum.All: {
       return todos;
     }
-    case 'active': {
+    case TodoFiltersEnum.Active: {
       return todos.filter(todo => !todo.isCompleted);
     }
-    case 'completed': {
+    case TodoFiltersEnum.Completed: {
       return todos.filter(todo => todo.isCompleted);
     }
   }
